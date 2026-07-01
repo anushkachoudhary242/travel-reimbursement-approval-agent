@@ -1,0 +1,11 @@
+{
+    "manager": {
+        "max_amount": 10000
+    },
+    "senior_manager": {
+        "max_amount": 50000
+    },
+    "director": {
+        "max_amount": 999999
+    }
+}

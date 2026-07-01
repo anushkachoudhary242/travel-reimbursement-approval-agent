@@ -1,0 +1,68 @@
+2026-07-01 14:52:23,321 | INFO | Received claim from Test
+2026-07-01 14:52:23,345 | INFO | Running Policy Retrieval
+2026-07-01 14:54:00,933 | INFO | Checking expense limits
+2026-07-01 14:54:00,949 | INFO | Checking receipts
+2026-07-01 14:54:00,960 | INFO | Checking duplicate receipts
+2026-07-01 14:54:00,967 | INFO | Finding approver
+2026-07-01 14:54:00,970 | INFO | Calculating approved amount
+2026-07-01 14:54:00,972 | INFO | Running business decision engine
+2026-07-01 14:55:53,143 | INFO | Received claim from Test
+2026-07-01 14:55:53,154 | INFO | Running Policy Retrieval
+2026-07-01 14:56:46,986 | INFO | Checking expense limits
+2026-07-01 14:56:47,011 | INFO | Checking receipts
+2026-07-01 14:56:47,029 | INFO | Checking duplicate receipts
+2026-07-01 14:56:47,031 | INFO | Finding approver
+2026-07-01 14:56:47,033 | INFO | Calculating approved amount
+2026-07-01 14:56:47,035 | INFO | Running business decision engine
+2026-07-01 14:57:54,142 | INFO | Received claim from Test
+2026-07-01 14:57:54,189 | INFO | Running Policy Retrieval
+2026-07-01 14:58:40,534 | INFO | Checking expense limits
+2026-07-01 14:58:40,555 | INFO | Checking receipts
+2026-07-01 14:58:40,572 | INFO | Checking duplicate receipts
+2026-07-01 14:58:40,572 | INFO | Finding approver
+2026-07-01 14:58:40,572 | INFO | Calculating approved amount
+2026-07-01 14:58:40,572 | INFO | Running business decision engine
+2026-07-01 14:59:53,011 | INFO | Received claim from Test
+2026-07-01 14:59:53,028 | INFO | Running Policy Retrieval
+2026-07-01 15:00:23,614 | INFO | Checking expense limits
+2026-07-01 15:00:23,614 | INFO | Checking receipts
+2026-07-01 15:00:23,617 | INFO | Checking duplicate receipts
+2026-07-01 15:00:23,617 | INFO | Finding approver
+2026-07-01 15:00:23,619 | INFO | Calculating approved amount
+2026-07-01 15:00:23,622 | INFO | Running business decision engine
+2026-07-01 15:01:01,030 | INFO | Received claim from Test
+2026-07-01 15:01:01,040 | INFO | Running Policy Retrieval
+2026-07-01 15:01:45,630 | INFO | Checking expense limits
+2026-07-01 15:01:45,638 | INFO | Checking receipts
+2026-07-01 15:01:45,648 | INFO | Checking duplicate receipts
+2026-07-01 15:01:45,649 | INFO | Finding approver
+2026-07-01 15:01:45,651 | INFO | Calculating approved amount
+2026-07-01 15:01:45,651 | INFO | Running business decision engine
+2026-07-01 15:01:51,182 | INFO | Decision: Approve
+2026-07-01 15:43:51,129 | INFO | Received claim from Test
+2026-07-01 15:43:51,474 | INFO | Running Policy Retrieval
+2026-07-01 15:43:58,292 | INFO | Checking expense limits
+2026-07-01 15:43:58,385 | INFO | Checking receipts
+2026-07-01 15:43:58,399 | INFO | Checking duplicate receipts
+2026-07-01 15:43:58,422 | INFO | Finding approver
+2026-07-01 15:43:58,449 | INFO | Calculating approved amount
+2026-07-01 15:43:58,461 | INFO | Running business decision engine
+2026-07-01 15:44:05,568 | INFO | Decision: Approve
+2026-07-01 15:52:43,481 | ERROR | Validation Error : [{'type': 'missing', 'loc': ('body', 'employee_name'), 'msg': 'Field required', 'input': {'employee_id': 'EMP002', 'hotel': 8500, 'meal': 1800, 'taxi': 700, 'flight': 'Economy', 'receipts': ['receipt_004', 'receipt_005', 'receipt_006']}}, {'type': 'missing', 'loc': ('body', 'trip_location'), 'msg': 'Field required', 'input': {'employee_id': 'EMP002', 'hotel': 8500, 'meal': 1800, 'taxi': 700, 'flight': 'Economy', 'receipts': ['receipt_004', 'receipt_005', 'receipt_006']}}]
+2026-07-01 15:54:20,384 | INFO | Received claim from Anushka
+2026-07-01 15:54:20,833 | INFO | Running Policy Retrieval
+2026-07-01 15:54:24,636 | INFO | Checking expense limits
+2026-07-01 15:54:24,670 | INFO | Checking receipts
+2026-07-01 15:54:24,676 | INFO | Checking duplicate receipts
+2026-07-01 15:54:24,680 | INFO | Finding approver
+2026-07-01 15:54:24,688 | INFO | Calculating approved amount
+2026-07-01 15:54:24,706 | INFO | Running business decision engine
+2026-07-01 15:54:35,247 | INFO | Decision: Reject
+2026-07-01 17:12:43,315 | INFO | Received claim from Anushka Choudhary
+2026-07-01 17:12:50,293 | INFO | Decision : Partially Approved
+2026-07-01 17:17:23,685 | INFO | Received claim from Anushka Choudhary
+2026-07-01 17:17:30,794 | INFO | Decision : Partially Approved
+2026-07-01 17:49:39,596 | INFO | Received claim from Yash Gupta
+2026-07-01 17:49:50,494 | INFO | Decision : Partially Approved
+2026-07-01 18:14:58,115 | INFO | Received claim from Rahul Sharma
+2026-07-01 18:15:13,289 | INFO | Decision : Approve

@@ -1,0 +1,74 @@
+{
+  "receipt_001": {
+    "vendor": "Taj Hotel",
+    "category": "Hotel",
+    "amount": 6000,
+    "attachment": true,
+    "date": "2026-06-10"
+  },
+
+  "receipt_002": {
+    "vendor": "Barbeque Nation",
+    "category": "Meal",
+    "amount": 900,
+    "attachment": true,
+    "date": "2026-06-10"
+  },
+
+  "receipt_003": {
+    "vendor": "Uber",
+    "category": "Taxi",
+    "amount": 800,
+    "attachment": true,
+    "date": "2026-06-11"
+  },
+
+  "receipt_004": {
+    "vendor": "ITC Grand Hotel",
+    "category": "Hotel",
+    "amount": 8500,
+    "attachment": true,
+    "date": "2026-06-15"
+  },
+
+  "receipt_005": {
+    "vendor": "Mainland China",
+    "category": "Meal",
+    "amount": 1800,
+    "attachment": true,
+    "date": "2026-06-15"
+  },
+
+  "receipt_006": {
+    "vendor": "Ola",
+    "category": "Taxi",
+    "amount": 700,
+    "attachment": true,
+    "date": "2026-06-16"
+  },
+
+  "receipt_007": {
+    "vendor": "IndiGo",
+    "category": "Flight",
+    "flight_class": "Business",
+    "amount": 18500,
+    "attachment": true,
+    "date": "2026-06-20"
+  },
+
+  "receipt_008": {
+    "vendor": "Lifestyle",
+    "category": "Shopping",
+    "amount": 7000,
+    "attachment": true,
+    "date": "2026-06-21"
+  },
+
+  "receipt_009": {
+    "vendor": "Hotel Royal Orchid",
+    "category": "Hotel",
+    "amount": 6500,
+    "attachment": false,
+    "date": "2026-06-25"
+  }
+}
