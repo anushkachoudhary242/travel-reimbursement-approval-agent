@@ -118,26 +118,6 @@ class PolicyRetriever:
 
         return vectordb
 
-    ###########################################################
-    # Load Existing DB
-    ###########################################################
-
-    # def load_vector_db(self):
-
-    #     if PolicyRetriever._vectordb is None:
-
-    #         print("Loading ChromaDB...")
-
-    #         PolicyRetriever._vectordb = Chroma(
-
-    #             persist_directory=CHROMA_DB_PATH,
-
-    #             embedding_function=self.embeddings
-
-    #         )
-
-    #     return PolicyRetriever._vectordb
-
 
     def load_vector_db(self):
 

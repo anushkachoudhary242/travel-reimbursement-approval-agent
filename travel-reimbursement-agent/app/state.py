@@ -1,37 +1,3 @@
-# from typing import TypedDict
-
-
-# class TravelState(TypedDict):
-
-#     claim: dict
-
-#     policy: str
-
-#     limits: dict
-
-#     receipts: dict
-
-#     duplicates: dict
-
-#     approver: dict
-
-#     financials: dict
-
-#     business_decision: dict
-
-#     result: dict
-
-
-
-
-
-
-
-
-
-
-
-
 from typing import TypedDict, Optional
 
 

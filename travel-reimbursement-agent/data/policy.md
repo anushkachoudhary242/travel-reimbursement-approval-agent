@@ -8,8 +8,10 @@
 ---
 
 ## 2. Flight Expenses
-- Only Economy class is reimbursable.
-- Business class requires Director approval.
+- Economy class airfare is fully reimbursable.
+- Business class airfare requires Director approval. If not pre-approved, the airfare is not reimbursable.
+- Flight ticket/invoice is mandatory.
+- Flight reimbursement is based on the actual fare paid.
 
 ---
 
@@ -51,7 +53,7 @@ Above ₹50,000
 
 ## 7. Missing Documents
 
-If any mandatory receipt is missing:
+If mandatory receipts are missing, receipt attachments are missing, or no receipts are uploaded for reimbursable expenses:
 
 Decision:
 Manual Review

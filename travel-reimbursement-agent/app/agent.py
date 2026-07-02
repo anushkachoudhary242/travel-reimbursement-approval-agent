@@ -1,199 +1,3 @@
-# from langchain_google_genai import ChatGoogleGenerativeAI
-
-# from app.config import (
-#     GOOGLE_API_KEY,
-#     MODEL_NAME
-# )
-
-# from app.prompts import SYSTEM_PROMPT
-# import json
-# from app.schemas import DecisionResponse
-
-
-# class TravelApprovalAgent:
-
-#     def __init__(self):
-
-#         self.llm = ChatGoogleGenerativeAI(
-
-#             model=MODEL_NAME,
-
-#             google_api_key=GOOGLE_API_KEY,
-
-#             temperature=0
-
-#         )
-
-#     def build_prompt(
-
-#             self,
-
-#             claim,
-
-#             policy,
-
-#             limits,
-
-#             receipts,
-
-#             duplicates,
-
-#             approver,
-
-#             financials,
-
-#             business_decision
-
-#     ):
-
-#         prompt = f"""
-
-#     {SYSTEM_PROMPT}
-
-#     ============================
-
-#     CLAIM
-
-#     {claim}
-
-#     ============================
-
-#     POLICY
-
-#     {policy}
-
-#     ============================
-
-#     LIMIT CHECK
-
-#     {limits}
-
-#     ============================
-
-#     RECEIPTS
-
-#     {receipts}
-
-#     ============================
-
-#     DUPLICATES
-
-#     {duplicates}
-
-#     ============================
-
-#     APPROVER
-
-#     {approver}
-
-#     ============================
-
-#     BUSINESS DECISION
-
-#     Decision:
-#     {business_decision["decision"]}
-
-#     Approved Amount:
-#     {business_decision["approved_amount"]}
-
-#     Rejected Amount:
-#     {business_decision["rejected_amount"]}
-
-#     Missing Documents:
-#     {business_decision["missing_documents"]}
-
-#     This business decision is FINAL.
-
-#     Do NOT change it.
-
-#     Do NOT calculate monetary values.
-
-#     Your job is ONLY to explain WHY this decision was made.
-    
-#     ============================
-
-#     IMPORTANT
-
-#     The reimbursement decision has already been determined by the Business Decision Engine.
-
-#     Do NOT change the decision.
-
-#     Do NOT calculate any monetary values.
-
-#     Only:
-
-#     1. Explain the decision.
-#     2. Mention the relevant policy.
-#     3. Provide a confidence score.
-#     4. Return valid JSON.
-
-#     """
-
-#         return prompt
-
-#     def evaluate(
-#             self,
-#             claim,
-#             policy,
-#             limits,
-#             receipts,
-#             duplicates,
-#             approver,
-#             financials,
-#             business_decision
-#     ):
-
-#         prompt = self.build_prompt(
-#             claim,
-#             policy,
-#             limits,
-#             receipts,
-#             duplicates,
-#             approver,
-#             financials,
-#             business_decision
-#         )
-
-#         response = self.llm.invoke(prompt)
-
-#         text = response.content.strip()
-
-#         if text.startswith("```json"):
-#             text = text.replace("```json", "")
-
-#         if text.endswith("```"):
-#             text = text.replace("```", "")
-
-#         text = text.strip()
-
-#         try:
-
-#             data = json.loads(text)
-
-#             decision = DecisionResponse(**data)
-
-#             return decision.model_dump()
-
-#         except Exception as e:
-
-#             return {
-#                 "decision": "Manual Review",
-#                 "approved_amount": financials["approved_amount"],
-#                 "rejected_amount": financials["rejected_amount"],
-#                 "confidence": 0.4,
-#                 "missing_documents": [],
-#                 "policy_references": [],
-#                 "explanation": f"Unable to parse Gemini response. {str(e)}"
-#             }
-
-
-
-
-
-
-
-
-
 import json
 
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -248,50 +52,92 @@ EMPLOYEE CLAIM
 
 ================================================
 
+# FLIGHT DETAILS
+
+# Flight Type:
+# {claim.get("flight_type")}
+
+# Flight Fare:
+# ₹{claim.get("flight_fare")}
+
+================================================
+
 RELEVANT POLICY
 
 {policy}
 
 ================================================
 
-BUSINESS DECISION
+BUSINESS DECISION (FINAL)
 
 {json.dumps(business_decision, indent=4)}
+
+The above decision has already been finalized by the Business Decision Engine.
+
+Use it exactly as provided.
 
 ================================================
 
 IMPORTANT INSTRUCTIONS
 
-The Business Decision Engine has ALREADY made the decision.
+The Business Decision Engine has already completed all reimbursement calculations.
 
-DO NOT recalculate any amount.
+The Business Decision Engine has already determined:
 
-DO NOT modify:
+• Final Decision
+• Approved Amount
+• Rejected Amount
+• Expense-wise Breakdown
+• Required Approver
+
+DO NOT perform any calculations.
+
+DO NOT change:
 
 - decision
 - approved_amount
 - rejected_amount
 - approver
+- expenses
 
-Your ONLY job is:
+Your ONLY responsibilities are:
 
-1. Explain WHY the decision was made.
+1. Explain why each expense was approved, partially approved, or rejected.
 
-2. Mention relevant policy references.
+2. Explain how the company policy was applied.
 
-3. Generate confidence score between 0 and 1.
+3. Mention the policy sections used for the decision.
+
+4. Generate a confidence score between 0 and 1.
+
+The explanation should specifically mention:
+
+• Hotel reimbursement
+• Meal reimbursement
+• Taxi reimbursement
+• Flight reimbursement (based on flight type and fare)
+• Shopping expenses (if present)
+• Missing receipts (if any)
+• Duplicate receipts (if any)
+
+If no receipts were uploaded, clearly state that the claim requires Manual Review because supporting documents are mandatory for reimbursement.
 
 Return ONLY valid JSON.
 
 Expected Output:
 
 {{
-    "confidence": 0.98,
-    "policy_references":[
-        "...",
-        "..."
+    "confidence": 0.97,
+
+    "policy_references": [
+
+        "Hotel Expense Policy",
+
+        "Flight Expense Policy"
+
     ],
-    "explanation":"..."
+
+    "explanation": "Provide a concise explanation of how the Business Decision Engine applied the reimbursement policy. Do not mention calculations that are not already present in the Business Decision."
 }}
 
 """

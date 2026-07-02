@@ -50,8 +50,8 @@
   "receipt_007": {
     "vendor": "IndiGo",
     "category": "Flight",
-    "flight_class": "Business",
-    "amount": 18500,
+    "flight_type": "Business",
+    "flight_fare": 18500,
     "attachment": true,
     "date": "2026-06-20"
   },
@@ -68,7 +68,7 @@
     "vendor": "Hotel Royal Orchid",
     "category": "Hotel",
     "amount": 6500,
-    "attachment": false,
+    "attachment": true,
     "date": "2026-06-25"
   }
 }

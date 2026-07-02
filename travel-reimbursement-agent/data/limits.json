@@ -2,5 +2,9 @@
     "hotel_per_night": 7000,
     "meal_per_day": 1000,
     "taxi_limit": 5000,
-    "flight_class": "Economy"
+
+    "flight": {
+        "allowed_class": "Economy",
+        "requires_director_approval": "Business"
+    }
 }

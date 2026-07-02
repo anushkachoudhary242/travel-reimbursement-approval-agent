@@ -66,3 +66,632 @@
 2026-07-01 17:49:50,494 | INFO | Decision : Partially Approved
 2026-07-01 18:14:58,115 | INFO | Received claim from Rahul Sharma
 2026-07-01 18:15:13,289 | INFO | Decision : Approve
+2026-07-01 18:43:12,747 | INFO | Received claim from Rahul Sharma
+2026-07-01 18:44:23,315 | ERROR | 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 36.713329746s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 36
+}
+]
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 55, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 331, in _with_call
+    return call.result(), call
+           ^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 438, in result
+    raise self
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 314, in continuation
+    response, call = self._thunk(new_method).with_call(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 1173, in with_call
+    return _end_unary_response_blocking(state, call, True, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 36.713329746s."
+	debug_error_string = "RESOURCE_EXHAUSTED:You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 36.713329746s."
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2596, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1029, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\main.py", line 219, in evaluate
+    final_state = graph.invoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 3026, in invoke
+    for chunk in self.stream(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 2647, in stream
+    for _ in runner.tick(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_runner.py", line 162, in tick
+    run_with_retry(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 657, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 401, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\graph.py", line 452, in generate_explanation
+    response = agent.evaluate(
+               ^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\agent.py", line 327, in evaluate
+    response = self.llm.invoke(prompt)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 1488, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 980, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 799, in generate
+    self._generate_with_cache(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1045, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 1595, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 247, in _chat_with_retry
+    return _chat_with_retry(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _chat_with_retry
+    raise e
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 216, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 868, in generate_content
+    response = rpc(
+               ^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 216, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 57, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 36.713329746s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 36
+}
+]
+During task with name 'generate_explanation' and id '082d51ca-b0d9-44d2-531d-40ba351c7cbc'
+2026-07-01 18:49:33,779 | INFO | Received claim from Rahul Sharma
+2026-07-01 18:50:40,537 | ERROR | 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 19.674102665s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 19
+}
+]
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 55, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 276, in __call__
+    response, ignored_call = self._with_call(
+                             ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 331, in _with_call
+    return call.result(), call
+           ^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 438, in result
+    raise self
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_interceptor.py", line 314, in continuation
+    response, call = self._thunk(new_method).with_call(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 1173, in with_call
+    return _end_unary_response_blocking(state, call, True, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\grpc\_channel.py", line 990, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 19.674102665s."
+	debug_error_string = "RESOURCE_EXHAUSTED:You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 19.674102665s."
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2596, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1029, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\main.py", line 219, in evaluate
+    final_state = graph.invoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 3026, in invoke
+    for chunk in self.stream(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 2647, in stream
+    for _ in runner.tick(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_runner.py", line 162, in tick
+    run_with_retry(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 657, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 401, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\graph.py", line 452, in generate_explanation
+    response = agent.evaluate(
+               ^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\agent.py", line 327, in evaluate
+    response = self.llm.invoke(prompt)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 1488, in invoke
+    return super().invoke(input, config, stop=stop, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 980, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 799, in generate
+    self._generate_with_cache(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1045, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 1595, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 247, in _chat_with_retry
+    return _chat_with_retry(**params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anush\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 236, in _chat_with_retry
+    raise e
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langchain_google_genai\chat_models.py", line 216, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 868, in generate_content
+    response = rpc(
+               ^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 128, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 216, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 57, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 19.674102665s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 19
+}
+]
+During task with name 'generate_explanation' and id 'ca604588-242b-e963-e38e-d89e57cb16f8'
+2026-07-01 18:52:51,396 | INFO | Received claim from Rahul Sharma
+2026-07-01 18:53:05,780 | INFO | Decision : Approve
+2026-07-01 22:20:51,229 | INFO | Received claim from Rahul Sharma
+2026-07-01 22:21:24,884 | INFO | Decision : Approve
+2026-07-02 09:43:09,616 | INFO | Received claim from Rahul Sharma
+2026-07-02 09:43:24,658 | INFO | Decision : Approve
+2026-07-02 13:25:11,487 | INFO | Received claim from Rahul Sharma
+2026-07-02 13:25:16,188 | ERROR | 'flight_class'
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2596, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1029, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\main.py", line 219, in evaluate
+    final_state = graph.invoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 3026, in invoke
+    for chunk in self.stream(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 2647, in stream
+    for _ in runner.tick(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_runner.py", line 162, in tick
+    run_with_retry(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 657, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 401, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\graph.py", line 368, in validate_limits
+    state["limits"] = check_expense_limits(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\tools.py", line 307, in check_expense_limits
+    "flight_class": limits["flight_class"]
+                    ~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'flight_class'
+During task with name 'validate_limits' and id 'c89bf2f1-1980-95d4-12f7-0fee62dd5f61'
+2026-07-02 13:34:56,027 | INFO | Received claim from Rahul Sharma
+2026-07-02 13:35:00,951 | ERROR | Invalid format specifier ' 0.97,
+
+    "policy_references": [
+
+        "Hotel Expense Policy",
+
+        "Flight Expense Policy"
+
+    ],
+
+    "explanation": "Provide a concise explanation of how the Business Decision Engine applied the reimbursement policy. Do not mention calculations that are not already present in the Business Decision."
+' for object of type 'str'
+Traceback (most recent call last):
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2596, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1029, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\main.py", line 219, in evaluate
+    final_state = graph.invoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 3026, in invoke
+    for chunk in self.stream(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\main.py", line 2647, in stream
+    for _ in runner.tick(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_runner.py", line 162, in tick
+    run_with_retry(
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\pregel\_retry.py", line 42, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 657, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 401, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\graph.py", line 454, in generate_explanation
+    response = agent.evaluate(
+               ^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\agent.py", line 357, in evaluate
+    prompt = self.build_prompt(
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\VS Code\travel-reimbursement-agent\app\agent.py", line 323, in build_prompt
+    {
+ValueError: Invalid format specifier ' 0.97,
+
+    "policy_references": [
+
+        "Hotel Expense Policy",
+
+        "Flight Expense Policy"
+
+    ],
+
+    "explanation": "Provide a concise explanation of how the Business Decision Engine applied the reimbursement policy. Do not mention calculations that are not already present in the Business Decision."
+' for object of type 'str'
+During task with name 'generate_explanation' and id '32ed4248-e719-06dc-0cbe-7f911e4d32cf'
+2026-07-02 13:42:46,958 | INFO | Received claim from Rahul Sharma
+2026-07-02 13:43:06,654 | INFO | Decision : Approve
+2026-07-02 13:44:00,628 | INFO | Received claim from Sneha Patil
+2026-07-02 13:44:11,596 | INFO | Decision : Partially Approved
+2026-07-02 13:44:39,844 | INFO | Received claim from Amit
+2026-07-02 13:44:49,343 | INFO | Decision : Partially Approved
+2026-07-02 13:45:15,781 | INFO | Received claim from Kiran
+2026-07-02 13:45:25,170 | INFO | Decision : Partially Approved
+2026-07-02 13:45:51,217 | INFO | Received claim from Anushka
+2026-07-02 13:46:01,808 | INFO | Decision : Approve
+2026-07-02 13:46:21,818 | INFO | Received claim from Rohit
+2026-07-02 13:46:32,664 | INFO | Decision : Reject
+2026-07-02 13:47:19,198 | INFO | Received claim from Vikas
+2026-07-02 13:47:31,677 | INFO | Decision : Reject
+2026-07-02 13:48:00,276 | INFO | Received claim from Priya
+2026-07-02 13:48:15,615 | INFO | Decision : Manual Review
+2026-07-02 13:48:57,809 | ERROR | Validation Error : [{'type': 'json_invalid', 'loc': ('body', 236), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Extra data'}}]
+2026-07-02 13:50:21,753 | INFO | Received claim from Rohit
+2026-07-02 13:50:29,219 | INFO | Decision : Partially Approved
+2026-07-02 13:56:23,975 | INFO | Received claim from Rohit
+2026-07-02 13:56:43,258 | INFO | Decision : Partially Approved
+2026-07-02 14:00:59,089 | INFO | Received claim from Rohit
+2026-07-02 14:01:11,901 | INFO | Decision : Approve
+2026-07-02 14:09:22,214 | INFO | Received claim from Rohit
+2026-07-02 14:09:35,017 | INFO | Decision : Manual Review
+2026-07-02 14:35:50,876 | INFO | Received claim from Rohit
+2026-07-02 14:36:04,713 | INFO | Decision : Approve

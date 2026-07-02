@@ -1,183 +1,3 @@
-# """
-# Deterministic Business Decision Engine
-
-# This module contains the business rules for deciding whether a
-# travel reimbursement claim should be:
-
-# 1. Approve
-# 2. Partially Approved
-# 3. Reject
-# 4. Manual Review
-
-# The LLM is NOT responsible for making these decisions.
-# It only generates the explanation.
-# """
-
-
-# def make_business_decision(
-#     claim: dict,
-#     limits: dict,
-#     receipts: dict,
-#     duplicates: dict,
-#     financials: dict,
-# ):
-#     """
-#     Returns:
-#     {
-#         "decision": "...",
-#         "approved_amount": ...,
-#         "rejected_amount": ...
-#     }
-#     """
-
-#     # --------------------------------------------------------
-#     # Rule 1 : Duplicate Receipts
-#     # --------------------------------------------------------
-
-#     duplicate_found = duplicates.get("duplicate_found", False)
-
-#     if duplicate_found:
-#         return {
-#             "decision": "Reject",
-#             "approved_amount": 0,
-#             "rejected_amount": (
-#                 financials["approved_amount"]
-#                 + financials["rejected_amount"]
-#             ),
-#             "missing_documents": [],
-#             "confidence": 0.95
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 2 : Missing Receipts / Attachments
-#     # --------------------------------------------------------
-
-#     receipts_valid = receipts.get("valid", True)
-
-#     missing_receipts = receipts.get("missing_receipts", [])
-
-#     missing_attachments = receipts.get("missing_attachments", [])
-
-#     if not receipts_valid:
-
-#         return {
-
-#             "decision": "Manual Review",
-
-#             "approved_amount": financials["approved_amount"],
-
-#             "rejected_amount": financials["rejected_amount"],
-
-#             "missing_documents":
-#                 missing_receipts + missing_attachments,
-#             "confidence": 0.50
-
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 3 : Business Class Flight
-#     # --------------------------------------------------------
-
-#     flight = claim.get("flight", "")
-
-#     if str(flight).lower() == "business":
-
-#         return {
-#             "decision": "Reject",
-#             "approved_amount": 0,
-#             "rejected_amount": (
-#                 financials["approved_amount"]
-#                 + financials["rejected_amount"]
-#             ),
-#             "missing_documents": [],
-#             "confidence": 0.95
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 4 : Shopping is never reimbursable
-#     # --------------------------------------------------------
-
-#     shopping = claim.get("shopping", 0)
-
-#     if shopping > 0:
-
-#         return {
-#             "decision": "Reject",
-#             "approved_amount": 0,
-#             "rejected_amount": (
-#                 financials["approved_amount"]
-#                 + financials["rejected_amount"]
-#                 + shopping
-#             ),
-#             "missing_documents": [],
-#             "confidence": 0.95
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 5 : Flight Policy
-#     # --------------------------------------------------------
-
-#     flight_limit = limits.get("flight", {})
-
-#     if not flight_limit.get("approved", True):
-
-#         return {
-#             "decision": "Reject",
-#             "approved_amount": 0,
-#             "rejected_amount": (
-#                 financials["approved_amount"]
-#                 + financials["rejected_amount"]),
-#             "missing_documents": [],
-#             "confidence": 0.95
-            
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 6 : Any exceeded reimbursement limit
-#     # --------------------------------------------------------
-
-#     if financials["rejected_amount"] > 0:
-
-#         return {
-#             "decision": "Partially Approved",
-#             "approved_amount": financials["approved_amount"],
-#             "rejected_amount": financials["rejected_amount"],
-#             "missing_documents": [],
-#             "confidence": 0.85
-#         }
-
-#     # --------------------------------------------------------
-#     # Rule 7 : Everything valid
-#     # --------------------------------------------------------
-
-#     return {
-
-#         "decision": "Approve",
-
-#         "approved_amount": financials["approved_amount"],
-
-#         "rejected_amount": 0,
-
-#         "missing_documents": [],
-#         "confidence": 0.98
-
-#     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 from typing import Dict
 
 
@@ -220,7 +40,7 @@ class DecisionEngine:
                     + claim.get("meal", 0)
                     + claim.get("taxi", 0)
                     + claim.get("shopping", 0)
-                    + claim.get("flight_amount", 0)
+                    + claim.get("flight_fare", 0)
                 ),
                 "approver": approver,
                 "expenses": [],
@@ -363,38 +183,45 @@ class DecisionEngine:
         # FLIGHT
         # ==========================================================
 
-        flight_class = claim.get("flight", "Economy")
+        flight_type = claim.get("flight_type", "Economy")
 
-        flight_amount = claim.get("flight_amount", 0)
+        flight_fare = claim.get("flight_fare", 0)
 
-        if flight_class.lower() == "economy":
+        allowed_class = limits["flight"]["allowed_class"]
 
-            approved = flight_amount
+        if flight_type.lower() == allowed_class.lower():
+
+            approved = flight_fare
 
             rejected = 0
 
             status = "Approved"
 
-            remarks = "Economy fare reimbursable"
+            remarks = (
+                f"{flight_type} airfare reimbursed."
+            )
 
         else:
 
             approved = 0
 
-            rejected = flight_amount
+            rejected = flight_fare
 
             status = "Rejected"
 
-            remarks = "Business class is not reimbursable"
+            remarks = (
+                f"{flight_type} airfare requires Director approval."
+            )
 
         approved_total += approved
+
         rejected_total += rejected
 
         expenses.append({
 
             "category": "Flight",
 
-            "claimed": flight_amount,
+            "claimed": flight_fare,
 
             "approved": approved,
 
