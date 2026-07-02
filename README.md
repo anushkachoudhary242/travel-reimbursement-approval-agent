@@ -455,7 +455,7 @@ GOOGLE_API_KEY=your_google_api_key_here
 
 Replace `your_google_api_key_here` with your actual Google Gemini API key.
 
-# > Note: The application uses this environment variable to authenticate requests to the Google Gemini API.
+> **Note:** The application uses this environment variable to authenticate requests to the Google Gemini API.
 
 ---
 
