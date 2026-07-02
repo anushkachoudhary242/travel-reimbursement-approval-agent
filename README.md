@@ -391,62 +391,71 @@ POST
 
 ```json
 {
-    "decision":"Partially Approved",
-
-    "approved_amount":20900,
-
-    "rejected_amount":4600,
-
-    "approver":"Senior Manager",
-
-    "confidence":0.98,
-
-    "expenses":[
-        {
-            "category":"Hotel",
-            "claimed":10000,
-            "approved":7000,
-            "rejected":3000,
-            "status":"Partially Approved",
-            "remarks":"Exceeded hotel reimbursement limit"
-        },
-        {
-            "category":"Meal",
-            "claimed":2000,
-            "approved":1000,
-            "rejected":1000,
-            "status":"Partially Approved",
-            "remarks":"Exceeded meal reimbursement limit"
-        },
-        {
-            "category":"Taxi",
-            "claimed":900,
-            "approved":900,
-            "rejected":0,
-            "status":"Approved",
-            "remarks":"Within limit"
-        },
-        {
-            "category":"Flight",
-            "claimed":12000,
-            "approved":12000,
-            "rejected":0,
-            "status":"Approved",
-            "remarks":"Economy class"
-        },
-        {
-            "category":"Shopping",
-            "claimed":600,
-            "approved":0,
-            "rejected":600,
-            "status":"Rejected",
-            "remarks":"Personal expenses are not reimbursable"
-        }
-    ],
-
-    "explanation":"The hotel and meal expenses exceeded policy limits and were partially reimbursed. Taxi and economy flight expenses complied with company policy. Shopping expenses are personal in nature and therefore rejected."
+  "decision": "Approve",
+  "approved_amount": 19700,
+  "rejected_amount": 0,
+  "approver": "Senior Manager",
+  "expenses": [
+    {
+      "category": "Hotel",
+      "claimed": 6000,
+      "approved": 6000,
+      "rejected": 0,
+      "status": "Approved",
+      "remarks": "Within limit"
+    },
+    {
+      "category": "Meal",
+      "claimed": 900,
+      "approved": 900,
+      "rejected": 0,
+      "status": "Approved",
+      "remarks": "Within limit"
+    },
+    {
+      "category": "Taxi",
+      "claimed": 800,
+      "approved": 800,
+      "rejected": 0,
+      "status": "Approved",
+      "remarks": "Within limit"
+    },
+    {
+      "category": "Flight",
+      "claimed": 12000,
+      "approved": 12000,
+      "rejected": 0,
+      "status": "Approved",
+      "remarks": "Economy fare reimbursable"
+    }
+  ],
+  "missing_documents": [],
+  "policy_references": [
+    "Hotel Policy",
+    "Meal Policy",
+    "Taxi Policy",
+    "Flight Policy",
+    "Shopping Policy"
+  ],
+  "confidence": 0.99,
+  "explanation": "The reimbursement claim has been fully approved for a total of ₹19,700. All expenses, including hotel, meal, taxi, and economy-class flight, were approved as they complied with the respective policy limits and guidelines. Specifically, the hotel expense of ₹6000 was within the maximum reimbursement limit of ₹7000 per night. The meal expense of ₹900 was within the maximum daily allowance of ₹1000. The taxi expense of ₹800 was within the maximum reimbursement limit of ₹5000. The economy-class flight fare of ₹12000 is fully reimbursable as per policy. No expenses were rejected or partially approved, and all required documentation was provided."
 }
 ```
+---
+
+# 🔑 Environment Variables
+
+Before running the application, create a `.env` file in the project root directory and add your Google Gemini API key.
+
+Example:
+
+```env
+GOOGLE_API_KEY=your_google_api_key_here
+```
+
+Replace `your_google_api_key_here` with your actual Google Gemini API key.
+
+# > Note: The application uses this environment variable to authenticate requests to the Google Gemini API.
 
 ---
 
@@ -474,7 +483,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## (Optional) Run Streamlit
+## Run Streamlit
 
 ```bash
 streamlit run streamlit_app.py
